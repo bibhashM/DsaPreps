@@ -1,0 +1,29 @@
+Graph is a collection of Vertices(Nodes) and edges. 
+V is a set of Nodes.
+E is the set of Edges(links between two vertices) or set of pair of vertices.
+G= (V,E).
+V = (V)
+E = (V1,V2)
+
+Undirected:
+ unordered pair of edges i.e.
+ E1(v1,v2) & E2(V2,V1) are same.
+
+ V = {0, 1, 2, 3, 4}
+
+ E = {{0,1}, {0,2}, {0,3}, {1,0},{1,3},{1,4}, {2,0},{2,3}, {3,0},{3,1},{3,2},{3,4}, {4,1},{4,3}}
+
+Directed or Digraph:
+ ordered pair of edges.
+
+ V = {0, 1, 2, 3, 4}
+
+ E = {<0,1>, <0,2>, <0,3>, <1,3>,<1,4>,<2,3>,<3,4>}
+
+
+Degree:
+ The number of edges on a Node.
+ Pendant vertex - degree 1.
+ Isolated vertex - degree 0.
+
+Make using adjacency mattrix and matrix list;

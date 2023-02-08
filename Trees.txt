@@ -1,0 +1,155 @@
+Trees
+
+class Node{
+	int data;
+	Node *left;
+	Node *right;
+
+	Node(int val){
+	data =val;
+	left = NULL;
+	right = NULL;
+	}
+};
+
+Node * root = new Node(1);
+root->left = new Node(2);
+root->right = new Node(3);
+root->left->left = new Node(4);
+
+Node* getRoot(int data){
+	Node *root = new Node();
+	root->left =  NULL;
+	root->right = NULL;
+}
+
+***********************
+
+
+struct Node{
+        int data;
+        Node *left;
+        Node *right;
+}
+
+Node *root;
+
+root = malloc(sizeof(struct(Node)));
+
+root  = 10;
+root->left = NULL;
+root->right = NULL;
+***********************
+
+node* getNewNode(int val){
+	node * newnode = new Node();
+	node->left =NULL;
+	node->right =NULL;
+return newNode;
+}
+
+node *insert(struct node* root, int val){
+	if(root == NULL){
+	    return getNewNode(root);
+    } 
+
+    if(root->key < val){
+	root->right = insert(root->right, val);
+    }
+    else if (root->key < val) {
+	root->left = insert(root->left, val);
+    }
+//return the original root address if  root->key == val.
+    return root;
+}
+
+// Inorder gives increasing order of nodes
+void inorder(node* root){
+    if (root == NULL)
+	return;
+    inorder(root->left);
+    cout<< root->key;
+    inorder(root->right);
+}
+
+// Preorder gives Prefix expressions for an expression tree
+void preOrder(node * root){
+    if (root ==NULL)
+	return;
+    cout<<root->key;
+    preOrder(root->left);
+    preOrder(root->right);
+}
+
+// Postorder gives Postfix expressiosn for an expression tree and also used in deleting the tree
+void postOrder(node *root){
+    if (root == NULL){
+	return;}
+    postOrder(root->left);
+    postOrder(root->right);
+    cout<<root->key;
+
+}
+
+node * removeNode(node *root, int val){
+    if (root == NULL)
+	return NULL;
+    
+    if (root->key < val)
+	root->right = removeNode(root->right, val);
+
+    else if (root->key > val)
+	root->left = removeNode(root->left, val);
+
+// if root->key == val, this part executes
+    else {
+	if (root->left == NULL && root->right == NULL){
+	    delete root;
+	    return NULL;
+	}	
+
+//root has right child
+//make the right child as root and free the old root
+	else if (root->left == NULL){
+	    node * temp = root->right;
+	    free(root);
+	    return temp;
+	}
+
+//root has left child
+//make the left child as root and free the old root
+	else if (root->right ==NULL){
+	    node * temp = root->left;
+	    free(root);
+	    return temp;
+	}
+
+//if root has both left and right child
+	else{
+	    int rightMin = getRightMin(root->right);
+	    root->key = rightMin;
+	    root->right = removeNode(root->right, rightMin);
+	}
+
+    return root;
+    }
+
+}
+
+node * getRightMin(node * root){
+    while(temp->left != NULL){
+	temp = temp->left;
+    }	
+    return temp;
+}
+
+int main(){
+    node *root = NULL;
+    root = insert(root,100);
+    root = insert(root, 50);
+
+    inorder(root);
+    preOrder(root);
+    postOrder(root);    
+return 0;
+}
