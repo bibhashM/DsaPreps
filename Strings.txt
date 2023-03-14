@@ -1,0 +1,263 @@
+Strings:
+
+Data type used for text processing, url parsing, working on human readable data.
+String is terminated using '\0' chacracter while a char is not.
+
+ 
+Main operations:
+
+Concat.
+Substring extraction.
+Length calculation.
+Comparison.
+Searching pattern.
+Replacing substring.
+Sorting.
+
+if str[], stored in stack segment.
+if it is global or static, it's stored in data segment.
+
+char str[] = "Geeks"
+
+Index  -> 0 1 2 3 4
+string -> G e e k s _
+
+
+format specifier for C:
+
+char str[] = "Geeks";
+printf("%s", str);
+printf("%c", str);
+
+****************
+input:
+string fullName;
+getline(cin, fullName);
+cout<<fullName;
+
+//fullName = Bib M
+Out:
+Bib M
+***************
+
+string str1 = "this is a String"
+string str2("A string by Bibhash");
+//initialise by raw string
+cout<<str1<<" "<<str2;
+
+***************
+
+concat(append):
+#include <bits/stdc++.h>
+using namespace std;
+
+string s1= "this is Morang"
+string s2= "bibhash Morang"
+s1.append(s2);
+cout<<s1;
+
+strcat(s1,s2);
+cout<<s1;
+
+string s3 = s1 + s2;
+
+***************
+
+Find:
+
+#include <include>
+#include <string>
+
+using namespace std;
+
+string s = "This is Morang , bibhash Morang";
+string s1 = "Morang";
+
+size_t found = str.find(s1);
+if (found != string::npos)
+	cout<<"position is"<<found;
+
+//out: 8
+ 
+char arr[]= "";
+found = str.find(arr, found+1);
+if (found!= string::npos)
+	cout<<"next position"<<found;
+
+//out: 25
+
+//only search firrst 5 chars of string "bibhash";
+
+size_t found = str.find("bibhash", 0, 5)
+if (found != string::npos)
+	cout<<found;
+
+//out: 17
+
+**************
+
+find substring in string:
+
+string s1 = "geeks";
+string r= s1.substr(3,2);
+cout<<r;
+
+//out: ks
+
+*************
+substring before/after a specific char:
+
+string s1="dog:cat";
+int pos = s1.find(":");
+
+//after
+string sub = s.substr(pos+1);
+
+
+//befor
+string subb= s.substr(0,pos);
+//out : cat
+
+TC: O(n)
+
+*************
+
+All substrings of a string:
+
+void subString(string s, int n){
+	for(int i=0; i<n; i++){
+		for(int len = 1; len<= n-1; len++)
+			cout<<s.substr(i, len)<<endl;
+	}
+}
+
+subString(s, s.length());
+
+*************
+
+max of all substringas of a string number:
+
+void subS(string s, int len){
+    vector <int> v;
+	for (int i=0; i<n; i++){
+	    for (int len = 1; len<=n-1; len++){
+		string sub = s.substr(i, len);
+		int num = stoi(sub);
+		v.push_back(num); 
+	    }
+	}
+cout<<*max_element(v.besign, v.end())<<endl<<*min_element(v.begin(), v.end());
+}
+
+string s="823";
+subS(s,s.length());
+
+
+**************
+
+Length of string:
+
+int lengS(){
+    char Str[1000];
+    int i;
+ 
+    printf("Enter the String: ");
+    scanf("%s", Str);
+ 
+    for (i = 0; Str[i] != '\0'; ++i);
+ 
+    printf("Length of Str is %d", i);
+}
+
+TC: O(N).
+
+C++:
+
+strlen(Str.c_str()); //method
+Str.length();        //class object
+Str.size();          //class object
+
+for (int i=0; Str[i]; i++){
+	;
+}
+cout<<i;
+
+***************
+
+String rotation of s by 2 positions:
+
+void rotateS(string s, int x){
+    int n = s.length();
+    string temp[n];
+    iny j =0;
+
+//j= curr index in temp
+//i= curr index in s
+
+    for(int i=x;i<n; i++){
+	temp[j] = s[i];
+	j++;
+    }
+    for(int i=0;i<x; i++){
+        temp[j] = s[i];
+        j++;
+    } 
+
+}
+
+****
+
+All rotations of string:
+
+void printAllRotations(string s)
+{
+    int n = s.length();
+    string temp[n];
+
+for(int i=0; i< n; i++){
+    int j=i; //current index of str upto which to rotate
+    int k=0; 
+
+    while (str[j] != '\0'){
+        temp[k] = str[j];
+        j++;
+        k++;
+    }
+
+    j = 0;
+
+    while(j<i){
+        temp[k] = str[j];
+        j++;
+        k++;
+    }
+
+    cout<<temp;
+}
+}
+
+TC: O(n^2)
+SC: O(n)
+
+*************
+
+Reverse a string:
+
+string reverseS(string s){
+    int n= s.length();
+    char temp;
+    for (int i=0; i<n; i++){
+	temp = s[i];
+	s[i] = s[n-1-i];
+	s[[n-1-i];
+    }
+    return s;
+}
+*************
+
+Subsequence
+string obtained by removing one or more chars from substrng:
+2n-1 subsequence for n lentgh string.
+
+Substring
+Substring is a contiguous smaller or equal part of a string.
