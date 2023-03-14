@@ -27,3 +27,15 @@ Degree:
  Isolated vertex - degree 0.
 
 Make using adjacency mattrix and matrix list;
+
+DFS and BFS;
+BFS - min spanning tree, shortest path, SEO, social network search
+DFS - find path, solve puzzles with single solution, detect cycles
+
+Shortest path- dijkstra/ Bellman-ford used in min delay path netowkring
+Cycle Detection- Floyd cycle detection, detect deadlock
+Min Spannign tree- no cycles and edge that connects all edges, Prims and Kruskal's
+
+Strongly connected- if all the vertices reachable
+loosely connected - if all vertices not reeachable
+Graph coloring algo

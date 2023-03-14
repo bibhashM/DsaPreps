@@ -1,0 +1,25 @@
+git init
+git checkout -b 
+git clone
+git config --global user.name "bibhash M"
+git config --global user.email "bibhashmorang1@gmail.com"
+git config --list
+git pull --rebase origin master
+git rebase
+git log
+git status
+git add files
+git restore --stage  files
+git reset --soft HEAD~1
+git rm --cached file
+git commit --ammend
+git commit -m "message"
+git cherry-pick
+git push
+git push --set-upstream origin
+git blame
+
+No remote:
+git branch -M main
+git remote add origin https://github.com/bibhashM/project
+git push -u origin main
